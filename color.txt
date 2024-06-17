@@ -1,0 +1,23 @@
+Background and Typography:
+
+Use the off-white color (F2E9E4) as the primary background color for your webpages to create a clean and calming atmosphere.
+For text, use the dark blue color (22223B) to ensure high contrast and readability against the light background.
+Reserve the muted purple color (4A4E69) for headings, subheadings, or emphasized text to create visual hierarchy.
+
+
+Navigation and Buttons:
+
+Apply the muted purple color (4A4E69) to your navigation menu background to create a subtle contrast with the off-white background.
+Use the soft lavender color (9A8C98) for button backgrounds, with the dark blue color (22223B) for button text to create an engaging and clickable appearance.
+
+
+Sections and Containers:
+
+Utilize the light grayish-pink color (C9ADA7) as a background color for sections or containers that require visual separation from the main content.
+Pair this color with the dark blue (22223B) or muted purple (4A4E69) for text within these sections to maintain readability.
+
+
+Accents and Highlights:
+
+Employ the soft lavender color (9A8C98) as an accent color for elements like icons, borders, or hover effects to add visual interest and interactivity.
+Sparingly use the muted purple color (4A4E69) for highlighting important information, quotes, or callouts.
