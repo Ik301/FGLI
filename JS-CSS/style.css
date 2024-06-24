@@ -204,40 +204,106 @@ nav {
 
 
 
-/*mentorship timeline*/
+
+
+.timeline-container .timeline{
+    padding: 0 30px 30px 0;
+    float: left; 
+    position: relative;
+}
+
+.timeline-container {
+  margin-top: 2.5%;
+}
+
 .timeline {
-    width: 20%;
-    padding: 20px;
-    background-color: #f0f0f0;
+  margin-top: .5%;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 27.5%;
 }
-.timeline-node {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #4A4E69;
-    color: white;
-    cursor: pointer;
-}
-.expanded-view {
-    width: 0;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    right: 0;
-    background-color: white;
-    transition: width 0.3s ease;
-    overflow-y: auto;
-}
-.expanded-view.active {
-    width: 80%;
-    border-left: 2px solid #4A4E69;
-}
-.expanded-content {
-    padding: 20px;
-    display: none;
-}
-.close-btn {
+
+/* timeline line */
+.timeline-container .timeline:before,
+.timeline-container .timeline:after{
+    content: '';
+    height: 110px;
+    width: 2px;
+    border-left: 2px solid #9A8C98;
+    transform: rotate(-45deg);
     position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
+    right: 50px;
+    bottom: 0;
+}
+
+/* timeline dot */
+.timeline-container .timeline:after{
+    background-color: #fff;
+    height: 8px;
+    width: 8px;
+    border: 4px solid #4A4E69;
+    border-radius: 50%;
+    right: 0;
+}
+
+/* Adjust the line for right side (even) items */
+.timeline-container .timeline:nth-child(even):before {
+  transform: rotate(45deg);
+  right: auto;
+  left: 50px !important;  /* Adjust this value to move the line */
+  bottom: 0;
+}
+
+/* Adjust the dot for right side (even) items */
+.timeline-container .timeline:nth-child(even):after {
+  right: auto;
+  left: 70px;
+  bottom: 0;
+}
+
+/* timeline content */
+.timeline-content{
+    background: #4A4E69;
+    text-align: center;
+    min-height: 170px;
+    padding: 30px 35px 35px;
+    border-radius: 15px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* content box inside color */
+.timeline-content:before{
+    content: '';
+    background-color: #F2E9E4;
+    position: absolute;
+    left: 17px;
+    right: 17px;
+    top: 17px;
+    bottom: 17px;
+    z-index: -1;
+}
+
+.timeline-container .title{
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+/* moves box left or right */
+.timeline-container .timeline:nth-child(even){
+    padding: 0 0 30px 30px;
+    float: right;
+}
+
+/* moves button left or right */
+.timeline-container .timeline:nth-child(even):before{
+    transform: rotate(45deg);
+    right: auto;
+    left: 30px;
+}
+
+.timeline-container .timeline:nth-child(even):after{
+    right: auto;
+    left: 0;
 }

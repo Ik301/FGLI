@@ -129,20 +129,4 @@ class TextScramble {
     return this.chars[Math.floor(Math.random() * this.chars.length)];
   }
 
-} 
-
-
-
-// document.querySelectorAll('.resources-item').forEach(item => {
-//     const originalText = item.querySelector('.original').textContent;
-//     const jumbleElement = item.querySelector('.jumble');
-
-//     item.addEventListener('mouseenter', () => {
-//         let jumbledText = '';
-//         for (let i = 0; i < originalText.length; i++) {
-//             jumbledText += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-//         }
-//         jumbleElement.textContent = jumbledText;
-//     });
-// });
-
+}
