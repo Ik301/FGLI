@@ -128,5 +128,149 @@ class TextScramble {
   randomChar() {
     return this.chars[Math.floor(Math.random() * this.chars.length)];
   }
+}
 
+
+
+//scholarship
+document.addEventListener('DOMContentLoaded', function() {
+  let currentIndex = 0;
+  const scholarshipBoxes = document.querySelectorAll('.scholarship-box');
+  const container = document.querySelector('.scholarship-container');
+
+  console.log('Number of scholarship boxes found:', scholarshipBoxes.length);
+  
+  if (scholarshipBoxes.length > 0) {
+      console.log('First scholarship box:', scholarshipBoxes[0]);
+  } else {
+      console.error('No scholarship boxes found!');
+  }
+
+  function focusScholarship(index) {
+      console.log('Focusing scholarship at index:', index);
+      scholarshipBoxes.forEach((box, i) => {
+          if (i === index) {
+              box.classList.add('focused');
+              box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              console.log('Added focused class to:', box);
+          } else {
+              box.classList.remove('focused');
+          }
+      });
+  }
+
+  function handleWheel(event) {
+      event.preventDefault();
+      if (event.deltaY > 0 && currentIndex < scholarshipBoxes.length - 1) {
+          currentIndex++;
+      } else if (event.deltaY < 0 && currentIndex > 0) {
+          currentIndex--;
+      }
+      focusScholarship(currentIndex);
+  }
+
+  function throttle(func, limit) {
+      let inThrottle;
+      return function() {
+          const args = arguments;
+          const context = this;
+          if (!inThrottle) {
+              func.apply(context, args);
+              inThrottle = true;
+              setTimeout(() => inThrottle = false, limit);
+          }
+      }
+  }
+
+  if (container) {
+      container.addEventListener('wheel', throttle(handleWheel, 300));
+  } else {
+      console.error('Scholarship container not found!');
+  }
+
+  // Focus the first scholarship box on page load
+  if (scholarshipBoxes.length > 0) {
+      console.log('Focusing first scholarship box');
+      focusScholarship(0);
+      // Force a reflow to ensure the focus is applied
+      scholarshipBoxes[0].offsetHeight;
+  } else {
+      console.warn('No scholarship boxes to focus');
+  }
+});
+// Add console logs for debugging
+function openModal(event, modalId) {
+  event.preventDefault();
+  event.stopPropagation();
+  console.log('Attempting to open modal:', modalId);
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = "block";
+    console.log('Modal opened');
+  } else {
+    console.error('Modal not found:', modalId);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOMContentLoaded event fired');
+  const scholarshipBoxes = document.querySelectorAll('.scholarship-box');
+  console.log('Number of scholarship boxes found:', scholarshipBoxes.length);
+  
+  scholarshipBoxes.forEach((box, index) => {
+    const learnMoreButton = box.querySelector('.learn-more');
+    if (learnMoreButton) {
+      console.log(`Adding click event to button for scholarship ${index}`);
+      learnMoreButton.addEventListener('click', function(event) {
+        console.log(`Button clicked for scholarship ${index}`);
+        openModal(event, `scholarship-modal-${index}`);
+      });
+    } else {
+      console.warn(`No 'Learn More' button found for scholarship ${index}`);
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Open modal functionality
+  const scholarshipBoxes = document.querySelectorAll('.scholarship-box');
+  scholarshipBoxes.forEach((box, index) => {
+      const learnMoreButton = box.querySelector('.learn-more');
+      if (learnMoreButton) {
+          learnMoreButton.addEventListener('click', function(event) {
+              event.preventDefault();
+              openModal(`scholarship-modal-${index}`);
+          });
+      }
+  });
+
+  // Close modal functionality
+  const closeButtons = document.querySelectorAll('.close');
+  closeButtons.forEach(button => {
+      button.addEventListener('click', function(event) {
+          event.preventDefault();
+          const modal = this.closest('.modal');
+          if (modal) {
+              closeModal(modal);
+          }
+      });
+  });
+
+  // Close modal when clicking outside
+  window.addEventListener('click', function(event) {
+      if (event.target.classList.contains('modal')) {
+          closeModal(event.target);
+      }
+  });
+});
+
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+      modal.style.display = 'block';
+  }
+}
+
+function closeModal(modal) {
+  modal.style.display = 'none';
 }
