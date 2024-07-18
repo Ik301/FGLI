@@ -366,3 +366,12 @@ nav {
 .timeline-container .timeline:last-child {
     padding-bottom: 5%;
 }
+
+.timeline-list {
+    line-height: 1.5;
+}
+
+.timeline-list p {
+    margin: 0;
+    padding: 0.5em 0;
+}
